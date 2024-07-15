@@ -1,5 +1,9 @@
 # Bienvenido al tutorial de Docker!!!
+[![Docker](/img/Docker.png)](https://www.docker.com/)
+
 Aquí encontrarás un tutorial de Docker para poder entender y aplicar esta herramienta.
+
+Abarcando desde los conceptos más básicos hasta el uso en proyectos personales.
 
 ### Índice
 1 - [Que es Docker](/1-Que%20es%20Docker/)
