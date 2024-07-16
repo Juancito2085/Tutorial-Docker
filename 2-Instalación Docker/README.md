@@ -18,7 +18,6 @@ Pero basicamente lo que debemos hacer es abrir *Windows Power Shell* e introduci
 
 ```
 wsl --install
-
 ```
 Si tenemos algún problema a la hora de instalar con línea anterior podemos ir al link anterior donde explica de manera detallada como instalarlo. Una vez instalado reiniciamos la PC.
 
@@ -29,3 +28,26 @@ Luego de reiniciar el equipo nos aparecerá que el *Windows Power Shell* que Ubu
 Luego procedemos a instalar [Docker Desktop](https://www.docker.com/products/docker-desktop/), elegimos la versión para Windows y una vez que termina el proceso nos pedira reiniciar la PC nuevamente.
 
 También debemos tener habilitado el **Hyper-V** y la virutalización. Para más detalles dejo este [video](https://www.youtube.com/watch?v=KISyPtUBqbc&list=WL&index=3&t=1s   ) con la instalación bien detallada y paso a paso.
+
+### Verificación de la instalación
+
+Podemos verificar la versión de Docker que tenemos intaladar con la siguiente línea de comando en Windows Power Shell.
+
+```
+docker version
+```
+Con lo cual podremos ver la versión como se muestra en la siguiente figura.
+
+![docker version](/img/docker%20version.png)
+
+Ahora para probar Docker podemos ejecutar el siguiente comando.
+
+```
+docker run hello-world
+```
+
+Con esto Docker busca la image en local llamada *hello-world*, si no la encuentra la descarga, crea un contenedor a partir de laimage y ejecuta ese contenedor.
+
+![docker hello-world](/img/docker-hello-world.png)
+
+Como se puede ver en la imagen anterior, aparece un mensaje explicando lo que acaba de ocrurrir, confirma que Docker este funcionando en tu sistema y además hay un mensaje de bienvenida.
