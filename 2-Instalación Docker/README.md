@@ -50,4 +50,4 @@ Con esto Docker busca la image en local llamada *hello-world*, si no la encuentr
 
 ![docker hello-world](/img/docker-hello-world.png)
 
-Como se puede ver en la imagen anterior, aparece un mensaje explicando lo que acaba de ocrurrir, confirma que Docker este funcionando en tu sistema y además hay un mensaje de bienvenida.
+Como se puede ver en la imagen anterior, aparece un mensaje explicando lo que acaba de ocrurrir, confirma que Docker este funcionando en tu sistema y además hay un mensaje de bienvenida. 
