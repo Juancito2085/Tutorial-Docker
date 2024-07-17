@@ -110,8 +110,9 @@ En este caso vamos a descargar la imagen de **MongoDB** con la siguiente línea.
 ```
 docker pull mongo
 ```
+![mogno descargado](/img/mongo%20descargado.png)
  
-Una vez descargada la imagen vamos a crear un contenedor con la siguiente linea
+Una vez descargada la imagen vamos a crear un contenedor con la siguiente línea.
 
 ```
 docker create nombre_de_la_imagen
@@ -120,9 +121,13 @@ docker create nombre_de_la_imagen
 Que en nuestro caso sería.
 
 ```
-docker create mogno
+docker create mongo
 ```
+![contenedor creado](/img/contenedor%20mongo.png)
+
 Como se puede ver en la imagen docker nos devuelve el identificador del contenedor, el cual nos sirve para ejecutar el contenedor.
+
+![id contenedor mogno](/img/ver%20id%20mongo%20contenedor.png)
 
 Si quisieramos crear un contenedor con una línea mas verbosa deberíamos utilizar.
 
@@ -136,11 +141,15 @@ Para poder ejecutar el contenedor debemos usar la siguiente línea.
 docker start id_contenedor
 ```
 
+![docker start](/img/start%20mongo.png)
+
 Para verificar que el contenedor está corriendo utilizamos la siguiente línea.
 
 ```
 docker ps
 ```
+![docker ps mongo](/img/dockerps%20mongo.png)
+
 En la siguiente figura podemos ver:
 - ) CONTAINER ID: el identificador del contenedor, pero este es más corto y solo con este también podemos ejecutar el contenedor
 - ) IMAGE: indica en base a que imagen se ha creado el contenedor
@@ -163,9 +172,12 @@ docker ps
 
 Como se puede ver en la imagen, no aparece nada. Por lo que ahora vamos a utilizar la misma linea pero agregando lo siguiente.
 
+![docker stop mongo](/img/docker%20stop%20mongo.png)
+
 ```
 docker ps -a
 ```
+![docker ps -a con mongo](/img/docker%20ps-a%20con%20mongo.png)
 
 Con esto vamos a poder ver todos los contenedores y no solo los que están detenidos.
 
@@ -174,23 +186,26 @@ Ahora para eliminarlo vamos a utilizar la siguiente línea.
 ``` 
 docker rm nombre_del_contenedor
 ```
-
+![docker remove mongo](/img/mongo%20removido.png)
 Y ahora verificamos que lo hemos eliminado con la línea.
 
 ```
 docker ps -a
 ```
+![verificacion de mongo removido](/img/verificacion%20de%20mongo%20removido.png)
 
 Ahora si queremos crear un contenedor y asignarle un nombre utilizaremos los siguiente comandos.
 
 ```
 docker create --name nombre_del_contenedor imagen
 ```
+
 Vamos a crear un contenedor con el nombre **monguito** con la siguiente línea de comando.
 
 ```
 docker create --name mongo monguito
 ```
+![monguito creado](/img/moguito%20creado.png)
 
 Ahora para iniciar el contenedor vamos a utilizar el nombre que le dimos, que en este caso es el mismo que el de la imagen de la siguiente manera.
 
@@ -203,6 +218,7 @@ Ahora verificamos si esta corriendo mediante la línea.
 ```
 docker ps
 ```
+![monguito contenedor](/img/moguito%20contenedor.png)
 
 Como vemos en la imagen el contenedor esta corriendo, pero si quisieramos utilizar esta base de datos no podríamos acceder ya que el puerto del contenedor no está mapeado con ningún puerto de nuestra PC (si estuviaramos trabajando con un servidor sería el puerto del servidor), por lo que no se podría acceder de manera externa.
 
@@ -236,11 +252,16 @@ Para  nuestro caso utilizamos los siguiente parámetros.
 ```
 docker create -p27017:27017 --name monguito mongo
 ```
-Ahora verificamos que el container este creado.
+Ahora inicimamos el contenedor y verificamos que el container este creado.
 
 ```
+docker start monguito
 docker ps
 ```
+
+![monguito con puertos](/img/monguito%20con%20puertos.png)
+
+
 ### Logs
 
 Para saber si nuestro servidor de mongo se ejecuto de manera correcta podemos usar.
@@ -248,6 +269,7 @@ Para saber si nuestro servidor de mongo se ejecuto de manera correcta podemos us
 ```
 docker logs id_container
 ```
+
 También se puede utilizar 
 
 ```
@@ -255,9 +277,13 @@ docker logs nombre_container
 ```
 Como podemos ver en la imagen se ven todos los logs pero nos devuelve a la consola. Para quedarnos "escuchando" y poder ver los logs podemos utilizar la siguiente línea.
 
+![logs de monguito](/img/logs%20de%20monguito.png)
+
 ```
 docker logs --follow monguito
 ```
+Para volver a la línea de comando presionamos **Ctrl+c**.
+
 ### docker run
 
 Ahora veremos una manera rápida y sencilla que simplifica todos los pasos anteriores. 
@@ -299,6 +325,7 @@ Como vemos al ejecutar.
 ```
 docker ps
 ```
+![monguito con run y puertos](/img/monguito%20con%20run%20y%20puertos.png)
 
 Es para destacar que al ejecutar **docker run** vamos a tener tantos contenedores como veces se ejecuto este comando.
 
