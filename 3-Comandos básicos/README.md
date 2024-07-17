@@ -100,3 +100,205 @@ docker images
 Y vemos en la siguiente imagen como solo nos quedó la imagen *hello-world*.
 
 ![solo queda hello world](/img/todo%20eliminado%20menos%20hw.png)
+
+### Contenedores
+
+Para crear un contenedor vamos a necesitar una imagen y además setear las variables de configuración.
+
+En este caso vamos a descargar la imagen de **MongoDB** con la siguiente línea.
+
+```
+docker pull mongo
+```
+ 
+Una vez descargada la imagen vamos a crear un contenedor con la siguiente linea
+
+```
+docker create nombre_de_la_imagen
+```
+
+Que en nuestro caso sería.
+
+```
+docker create mogno
+```
+Como se puede ver en la imagen docker nos devuelve el identificador del contenedor, el cual nos sirve para ejecutar el contenedor.
+
+Si quisieramos crear un contenedor con una línea mas verbosa deberíamos utilizar.
+
+```
+docker container create mongo
+```
+
+Para poder ejecutar el contenedor debemos usar la siguiente línea.
+
+```
+docker start id_contenedor
+```
+
+Para verificar que el contenedor está corriendo utilizamos la siguiente línea.
+
+```
+docker ps
+```
+En la siguiente figura podemos ver:
+- ) CONTAINER ID: el identificador del contenedor, pero este es más corto y solo con este también podemos ejecutar el contenedor
+- ) IMAGE: indica en base a que imagen se ha creado el contenedor
+- ) COMMAND: indica el comando que utiliza el contenedor para ejecutarse
+- ) CREATE: indica hace cuanto fue creado el contenedor
+- ) STATUS: indica el estado del contenedor
+- ) PORTS: indica el puerto que utiliza
+- ) NAME: es el nombre del contenedor
+
+Ahora para detenerlo vamos a utilizar la siguiente linea y en este caso vamos a utilizar el identificador del container obtenido recién.
+
+```
+docker stop container_id
+```
+Una vez detenido nuestro container verificamos que es lo que sucede si utilizamos la línea.
+
+```
+docker ps
+```
+
+Como se puede ver en la imagen, no aparece nada. Por lo que ahora vamos a utilizar la misma linea pero agregando lo siguiente.
+
+```
+docker ps -a
+```
+
+Con esto vamos a poder ver todos los contenedores y no solo los que están detenidos.
+
+Ahora para eliminarlo vamos a utilizar la siguiente línea.
+
+``` 
+docker rm nombre_del_contenedor
+```
+
+Y ahora verificamos que lo hemos eliminado con la línea.
+
+```
+docker ps -a
+```
+
+Ahora si queremos crear un contenedor y asignarle un nombre utilizaremos los siguiente comandos.
+
+```
+docker create --name nombre_del_contenedor imagen
+```
+Vamos a crear un contenedor con el nombre **monguito** con la siguiente línea de comando.
+
+```
+docker create --name mongo monguito
+```
+
+Ahora para iniciar el contenedor vamos a utilizar el nombre que le dimos, que en este caso es el mismo que el de la imagen de la siguiente manera.
+
+```
+docker start monguito
+```
+
+Ahora verificamos si esta corriendo mediante la línea.
+
+```
+docker ps
+```
+
+Como vemos en la imagen el contenedor esta corriendo, pero si quisieramos utilizar esta base de datos no podríamos acceder ya que el puerto del contenedor no está mapeado con ningún puerto de nuestra PC (si estuviaramos trabajando con un servidor sería el puerto del servidor), por lo que no se podría acceder de manera externa.
+
+### Puertos
+
+Como ya dijimos antes para que se pueda utilizar algún contenedor mediante una conexión que recibe el servidor, se debe hacer un mapeo entre la mánquina (PC o servidor) y el contenedor.
+
+![port mapping](/img//port%20%20mapping.jfif)
+
+Como se puede ver en la imagen de arriba, vemos dos peticiones. Una petición en el puerto 8080 y otro en el 8090, estos estan mapeado al puerto interno 80 de cada servicio.
+
+Donde la primera petición se dirige al servicio **A** y la segunda al servcio **B**.
+
+Este mapeo de puertos permite que el tráfico de la red desde fuera del host se enrute a procesos específicos que se ejecuten en contenedores dentro del **host**(servidor).
+
+Vamos a borrar ahora nuestro contenedor para hacer un mapeo de muerto. 
+
+Primero detenemos el contenedor y luego lo eliminamos
+```
+docker stop monguito
+docker rm monguito
+```
+
+Ahora para crear un nuevo contenedor y mapear sus puertos utilizamos la siguiente línea.
+
+```
+docker create -p'puerto_host':'puerto_contenedor' --name nombre_contenedor nombre_imagen
+```
+Para  nuestro caso utilizamos los siguiente parámetros.
+
+```
+docker create -p27017:27017 --name monguito mongo
+```
+Ahora verificamos que el container este creado.
+
+```
+docker ps
+```
+### Logs
+
+Para saber si nuestro servidor de mongo se ejecuto de manera correcta podemos usar.
+
+```
+docker logs id_container
+```
+También se puede utilizar 
+
+```
+docker logs nombre_container
+```
+Como podemos ver en la imagen se ven todos los logs pero nos devuelve a la consola. Para quedarnos "escuchando" y poder ver los logs podemos utilizar la siguiente línea.
+
+```
+docker logs --follow monguito
+```
+### docker run
+
+Ahora veremos una manera rápida y sencilla que simplifica todos los pasos anteriores. 
+
+Si quisieros descargar la imagen, crear un contenedor e inciar el contendor con mongo solo deberíamos ejecutar lo siguiente.
+
+```
+docker run mongo
+```
+Con esto:
+
+1 ) Docker busca la imagen de manera local y si no la encuentra la descarga.
+
+2 ) Crea el contenedor
+
+3 ) Ejecuta el contenedor
+
+Como vemos seguimos teniendo los logs y para salir hay que presionar **Ctrl+c**. Pero si quisieramos correr el contenedor y no ver los logs para que nos devuelva a la línea de comando deberíamos ejecutar el siguiente comando.
+
+```
+docker run -d nombre_contenedor
+```
+Es importante destacar que todas las opciones que se vieron con **docker create** tambien se pueden aplicar a **docker run**.
+
+Ahora vamos a detener y elimnar el contenedor con el id del contenedor
+
+```
+docker stop
+docker rm 
+```
+
+Y vamos a utilizar la siguiente línea.
+
+```
+docker run --name monguito -p27017:27017 -d mongo 
+```
+Como vemos al ejecutar.
+
+```
+docker ps
+```
+
+Es para destacar que al ejecutar **docker run** vamos a tener tantos contenedores como veces se ejecuto este comando.
+
