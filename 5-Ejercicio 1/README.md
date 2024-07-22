@@ -16,9 +16,9 @@ Luego realizarás consulta para llenar 3 filas con los valores que deseés.
 Finalmente comprobarás que los valores esten en la base de datos haciendo una consulta *SELECT * FROM personas*.
 
 #### Si te animas
-Prueba hacer lo mismo que hiciste con python el bash del contenedor (en Docker Hub esta el comando para acceder).
+Prueba hacer lo mismo que hiciste con python pero en el bash del contenedor (en Docker Hub está el comando para acceder).
 No sabes que es el bash del contenedor? 
-INVESTIGA!!!!
+INVESTIGÁ!!!!
 
 ### TIPS
 
@@ -26,4 +26,4 @@ Recuerda que hay mas de una forma de crear el contenedor.
 
 No olvides exponer un puerto.
 
-Acostumbrate a **leer** el la documentación de la imagen en **Docker Hub** para ver que variables de ambiente neceistas configurar para que funcione el contenedor.
+Acostumbrate a **leer** el la documentación de la imagen en **Docker Hub** para ver que variables de ambiente necesitas configurar para que funcione el contenedor.
