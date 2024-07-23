@@ -1,0 +1,17 @@
+# Paso 1: Imagen base
+FROM python:3.12.4-windowsservercore-ltsc2022
+
+# Paso 2: Establecer el directorio de trabajo
+WORKDIR /app
+
+# Paso 3: Copiar archivos al contenedor
+COPY . /app
+
+# Paso 4: Instalar dependencias
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Paso 5: Exponer el puerto
+EXPOSE 5000
+
+# Paso 6: Definir el comando de ejecución
+CMD ["python", "app.py"]
