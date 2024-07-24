@@ -13,3 +13,7 @@ Abarcando desde los conceptos más básicos hasta el uso en proyectos personales
 3 - [Comandos básicos](/3-Comandos%20básicos/)
 
 4 - [Docker Hub](/4-Docker%20Hub/)
+
+5 - [Ejercicio 1](/5-Ejercicio%201/)
+
+6 - [Dockerfile](/6-Dockerfile/)
