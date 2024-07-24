@@ -81,3 +81,21 @@ En este caso le pasamos una lista con los comandos y los argumentos siguientes:
 ```
 CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
 ```
+### Creación de la imagen 
+Una vez que tengamos el **Dockerfile** terminado debemos crear la imagen de la siguiente manera.
+
+```
+docker build -t nombre_app:tag directorio_del_dockerfile
+```
+
+Si con la consola nos movemos por las carpetas hasta llegar hasta la carpeta donde tenemos nuestro Dockerfile entonces la línea quedaría de la siguiente manera.
+
+```
+docker build -t miapp:1 .
+```
+
+Hemos creado entonces una imagen con el nombre **miapp** y en particular la versión **1**.
+
+Luego creamos el contenedor con el mismo nombre y mapeamos los puertos para ver si funciona nuestro contenedor. Previo a esto podemos verificar si el contenedor esta levantado con la línea *docker ps -a*.
+
+La creación del contenedor y la verificación en local de la aplicación se deja como ejercicio.
