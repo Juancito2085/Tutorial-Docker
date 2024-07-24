@@ -1,17 +1,20 @@
-# Paso 1: Imagen base
-FROM python:3.12.4-windowsservercore-ltsc2022
+# 1º Paso: Usar una imagen base oficial de Python
+FROM python:3.9
 
-# Paso 2: Establecer el directorio de trabajo
+# 2º Paso: Establecer el directorio de trabajo en el contenedor
 WORKDIR /app
 
-# Paso 3: Copiar archivos al contenedor
-COPY . /app
+# 3º Paso: Copiar los archivos de requisitos primero para aprovechar la caché de Docker
+COPY requirements.txt .
 
-# Paso 4: Instalar dependencias
+# 4º Paso: Instalar las dependencias del proyecto
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Paso 5: Exponer el puerto
-EXPOSE 5000
+# 5º Paso: Copiar el resto del código de la aplicación al directorio de trabajo
+COPY . .
 
-# Paso 6: Definir el comando de ejecución
-CMD ["python", "app.py"]
+# 6º Paso:Exponer el puerto en el que la aplicación estará escuchando
+EXPOSE 8000
+
+# 7º Paso:Comando para ejecutar la aplicación usando uvicorn
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
