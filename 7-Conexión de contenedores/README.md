@@ -73,3 +73,26 @@ Iniciamos el contenedor
 ```
 docker start app
 ```
+Una vez que tenemos ambos contenedores iniciados podemos ir a nuestro navegador e utilizar la dirección [localhost:8000/docs](https://localhost:8000/docs) para acceder a swagger y poder utilizar la API.
+
+Lo que veremos será como la siguiente imagen y tendremos todos los endpoints para utilizar cada uno y ver si estos insertan, muestra y borran datos de la base de datos.
+
+![docs]
+
+Aquí insertaremos un elemento en la base de datos con nombre **Juan** y edad **23** como se muestra en la siguiente figura.
+
+![ep de insertar]
+
+Luego insertaremos otro con nombre **Pedro** y edad **32** de la misma manera.
+
+Ahora veremos todos los elementos que hemos insertado en el endpoint correspondiente como se ve en la siguiente imagen.
+
+![ep de mostrar]
+
+Ahora para eliminar un elemento en particular lo haremos con el endpoint correspondiente mediante el id como se ven el la siguiente imagen.
+
+![elimino elemento]
+
+Y como vemos el elemento fue elimnado
+
+![elemento eliminado]
