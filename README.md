@@ -1,9 +1,9 @@
 # Bienvenido al tutorial de Docker!!!
 [![Docker](/img/Docker.png)](https://www.docker.com/)
 
-Aquí encontrarás un tutorial de Docker para poder entender y aplicar esta herramienta.
+Aquí encontrarás un tutorial básico de Docker para poder entender y aplicar esta herramienta.
 
-Abarcando desde los conceptos más básicos hasta el uso en proyectos personales.
+Además se incluyen pequeños proyectos para poner en practica lo aprendido.
 
 ### Índice
 1 - [Que es Docker](/1-Que%20es%20Docker/)
@@ -17,3 +17,11 @@ Abarcando desde los conceptos más básicos hasta el uso en proyectos personales
 5 - [Ejercicio 1](/5-Ejercicio%201/)
 
 6 - [Dockerfile](/6-Dockerfile/)
+
+7 - [Conexión de contenedores](/7-Conexión%20de%20contenedores/)
+
+8 - [Docker compose](/8-Docker%20compose/)
+
+9 - [Volúmenes](/9-Volúmenes/)
+
+10 - [Ambientes y hot reload](/10-Ambientes%20y%20hot%20reload/)
