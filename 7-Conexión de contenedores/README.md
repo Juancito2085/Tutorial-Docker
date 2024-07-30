@@ -55,7 +55,7 @@ Una vez creada la red debemos volver a crear los contenedores pero asignandole l
 Por lo que para la base de datos de mongo el comando.
 
 ```
-docker create -p 27017:27017 --name db_mongo --network mired mongo
+docker create -p 27017:27017 --name db_mongo -e MONGO_INITDB_ROOT_USERNAME=admin -e MONGO_INITDB_ROOT_PASSWORD=1234 --network mired mongo
 ```
 Una vez creado el contenedor lo iniciamos.
 
@@ -77,22 +77,22 @@ Una vez que tenemos ambos contenedores iniciados podemos ir a nuestro navegador 
 
 Lo que veremos será como la siguiente imagen y tendremos todos los endpoints para utilizar cada uno y ver si estos insertan, muestra y borran datos de la base de datos.
 
-![docs]
+![docs](/img/docs.png)
 
 Aquí insertaremos un elemento en la base de datos con nombre **Juan** y edad **23** como se muestra en la siguiente figura.
 
-![ep de insertar]
+![ep de insertar](/img/ep%20de%20insertar.png)
 
 Luego insertaremos otro con nombre **Pedro** y edad **32** de la misma manera.
 
 Ahora veremos todos los elementos que hemos insertado en el endpoint correspondiente como se ve en la siguiente imagen.
 
-![ep de mostrar]
+![ep de mostrar](/img/ep%20de%20mostrar.png)
 
 Ahora para eliminar un elemento en particular lo haremos con el endpoint correspondiente mediante el id como se ven el la siguiente imagen.
 
-![elimino elemento]
+![elimino elemento](/img/elimino%20elemento.png)
 
 Y como vemos el elemento fue elimnado
 
-![elemento eliminado]
+![elemento eliminado](/img/elemento%20eliminado.png)
