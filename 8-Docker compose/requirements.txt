@@ -1,0 +1,4 @@
+fastapi
+pymongo==3.12.1
+uvicorn
+pydantic
