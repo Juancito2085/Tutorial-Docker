@@ -24,14 +24,18 @@ class ItemInDB(Item):
     id: str
 
 # Paso 5: Definir los endpoints
+
+@app.get('/')
+async def read_root():
+    return {'message': 'Hello World'}
 # Este endpoint crea un nuevo item en la base de datos
-@app.post('/items/', response_model=ItemInDB)
+@app.post('/items/', response_model=ItemInDB, description="Crea un nuevo item en la base de datos")
 async def create_item(item: Item):
     result = collection.insert_one(item.dict())
     return ItemInDB(id=str(result.inserted_id), **item.dict())
 
 # Este endpoint obtiene un item de la base de datos por su ID
-@app.get('/items/', response_model=List[ItemInDB])
+@app.get('/items/', response_model=List[ItemInDB], description="Se obtienen todos los items de la base de datos")
 async def read_items():
     items = list(collection.find())
     for item in items:
@@ -40,7 +44,7 @@ async def read_items():
     return items
 
 #Este endpoint borra un item de la base de datos por su ID
-@app.delete('/items/{item_id}')
+@app.delete('/items/{item_id}', description="Borra un item de la base de datos por su ID")
 async def delete_item(item_id: str):
     result = collection.delete_one({'_id': ObjectId(item_id)})
     if result.deleted_count == 0:

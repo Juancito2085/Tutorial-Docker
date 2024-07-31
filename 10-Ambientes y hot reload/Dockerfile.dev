@@ -2,7 +2,7 @@ FROM python:3.9-slim
 
 WORKDIR /app
 
-COPY requirements.txt requirements.txt
+COPY requirements.txt .
 RUN pip install -r requirements.txt
 
 # Instala watchdog
@@ -14,5 +14,4 @@ COPY . .
 # Expone el puerto 8000 para la aplicación
 EXPOSE 8000
 
-# Comando para ejecutar la aplicación con watchmedo
-CMD ["watchmedo", "auto-restart", "--patterns=*.py", "--recursive", "--", "python", "app.py"]
+

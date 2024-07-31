@@ -9,7 +9,10 @@ services:
     links:
       - db_mongo
     volumes:
-      - .:/home/app
+      - .:/app
+    command: >
+      watchmedo auto-restart --patterns=*.py --recursive -- 
+      uvicorn main:app --host 0.0.0.0 --port 8000 --reload
   db_mongo:
     image: mongo
     ports:
