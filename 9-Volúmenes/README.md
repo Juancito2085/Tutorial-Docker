@@ -60,3 +60,40 @@ Con el mismo código de la Unidad anterior vamos a realizar modificaciones como 
 
 - **Bind mount**: `./data:/data/db`
   - Mapea un directorio del host a un directorio del contenedor. Útil para desarrollo.
+
+### Persistencia de los datos
+
+Ahora con el **docker-compose.yml** que se encuentra en esta unidad vamos a levantar los contenedores cargar un elemento y bajar los contenedores para verificar que no se haya eliminado la información.
+
+Con el siguiente comando levantamos los contenedores.
+
+```
+docker compose up -d
+```
+
+Vamos a insertar un items como se ve en la siguiente figura.
+
+![volumen insertar item](/img/volumen%20item%20creado.png)
+
+Ahora vamos a detener y eliminar los contenedores mediante la siguiente línea de comando
+
+```
+docker compose down
+```
+Esto lo podemos ver en la siguiente imagen.
+
+![volumenes items](/img/volumenes%20docker%20compose%20down.png)
+
+Con esto si no tendríamos configurado los volúmenes la información se habría perdido. 
+
+Pero ahora vamos a volver a levantar los contenedores como lo hemos hecho antes.
+
+```
+docker compose up -d
+```
+
+Y vamos a verificar que esté el item que habíamos creado anteriormente.
+
+![volumenes post bajada](/img/volumenes%20post%20bajada.png)
+
+Y como vemos en la imagen de arriba, el item que habíamos creado no se eliminó al eliminar los contenedores anteriormente.
