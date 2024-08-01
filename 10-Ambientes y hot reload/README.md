@@ -119,10 +119,11 @@ En este caso la bandera **-f** se utiliza cuando vamos a utilizar un archivo con
 
 Una vez levantados podemos modificar el archivo **main.py** y los cambios se van a ver reflejados en la [https://localhost:8000](https://localhost:8000). 
 
-En este caso podemos agregar un endpoint raíz con el mensaje **Hello World**.
+En este caso podemos agregar un endpoint raíz con el mensaje **Hello World**, el cual está comentado en el código.
 
 ```
 @app.get('/')
 async def read_root():
     return {'message': 'Hello World'}
 ```
+Luego volver al navegador y actualizar la página para ver el cambio en la raíz.
