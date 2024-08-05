@@ -1,10 +1,10 @@
 # Resolución
 
-Si bien la resolución se puede dar de varias maneras, aca indicaremos la reolución más larga y extensa para poder aplicar todo lo aprendido hasta este punto.
+Si bien la resolución se puede realizar de varias maneras, acá indicaremos la reolución más larga y extensa para poder aplicar todo lo aprendido hasta este punto.
 
-1 ) Descargar la imagen de **MYSQL**: lo primero que deberíamos hacer es descargar la imagen para poder crear un contenedor y así ejecutarlo. En este caso es muy fácil ingresar a [Docker Hub](https://hub.docker.com/) y buscar la imagen que estamos buscando para poder comenzar. No debemos olvidarnos que además de obtener el comando para descargar la imagen también esta toda la información necesaria para utilizar dicha imagen.
+1 ) Descargar la imagen de **MYSQL**: lo primero que deberíamos hacer es descargar la imagen para poder crear un contenedor y así ejecutarlo. En este caso es muy fácil ingresar a [Docker Hub](https://hub.docker.com/) y buscar la imagen que estamos buscando para poder comenzar. No debemos olvidarnos que además de obtener el comando para descargar la imagen también esta toda la información necesaria para utilizar la misma.
 
-La primera linea de comando a utilizar sería:
+La primera línea de comando a utilizar sería:
 
 ```
 docker pull mysql
