@@ -13,24 +13,25 @@ En la página oficial poniendo el nombre de la aplicación que qerramos buscar p
 
 En este caso buscaremos *mongo*.
 
-![igm mongo](/img/img%20docker%20hub.png)
+![img mongo](/img/img%20docker%20hub.png)
+Figura 1. Página de Docker Hub.
 
 Una vez que elijamos **mongo** podemos ver:
 
 1 ) El comando para descargar la imagen de mongo.
 
-2 ) Tenemos una pestaña de tags donde podemos ver las diferentes versiones
+2 ) Tenemos una pestaña de tags donde podemos ver las diferentes versiones.
 
 3 ) También vamos a encontrar información de como utilizar la imagen, como por ejemplo: conexión con otros contenedores, configuración de variables de entorno, utilizar archivos de configuración, etc
 
 ### Variables de entorno
-Para el caso de **MongoDB** tenemos estas 2 variables de entorno que nos permiten setear el usuario y el password
+Para el caso de **MongoDB** tenemos estas 2 variables de entorno que nos permiten configurar el usuario y el password.
 
 ```
 -e MONGO_INITDB_ROOT_USERNAME=mongoadmin 
 -e MONGO_INITDB_ROOT_PASSWORD=secret
 ```
-En nuestro caso y como ejemplo para crear un contenedor podemos ejecutar la siguiente línea
+En nuestro caso y como ejemplo para crear un contenedor podemos ejecutar la siguiente línea.
 
 ```
 docker create -p27017:27017 --name monguito -e MONGO_INITDB_ROOT_USERNAME=user -e MONGO_INITDB_ROOT_PASSWORD=user1234 mongo 
