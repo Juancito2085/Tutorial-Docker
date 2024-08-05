@@ -1,6 +1,6 @@
 # Dockerfile
 
-Si quisieramos cear una imagen de nuestra aplicación u otra aplicación, tendríamos que definir varios parámetros y escribir muchas líneas y ejecutar de una en una. Y si hubiera una manera de crear un archivo con todas las instrucciones y solo ejecutarlo?
+Si quisieramos crear una imagen de nuestra aplicación u otra aplicación, tendríamos que definir varios parámetros y escribir muchas líneas y ejecutar de una en una. Y si hubiera una manera de crear un archivo con todas las instrucciones y solo ejecutarlo?
 
 ### Qué es un Dockerfile?
 
@@ -8,13 +8,13 @@ Es un archivo de texto que contiene instrucciones para construir una imagen de D
 
 ### Tu primer Dockerfile
 
-Vamos a aprender a construir un Dockerfile con un ejemplo muy sencillo, vamos a utilizar una API con dos endpoints, el primero será el **root** que mostrará un *Hola mundo!* y el otro **número** el cuál devolverá un número aleatorio entre 0 y 100.
+Vamos a aprender a construir un Dockerfile con un ejemplo muy sencillo, para esto utilizaremos una API con dos endpoints, el primero será el **root** que mostrará un *Hola mundo!* y el otro **número** el cuál devolverá un número aleatorio entre 0 y 100.
 
-1 ) Crear un requierments.txt: debemos crear este archivo donde se guardarán las dependencias necesarias para poder ejecutar esta aplicación.
+1 ) Crear un requirements.txt: debemos crear este archivo donde se guardarán las dependencias necesarias para poder ejecutar esta aplicación.
 
-2 ) Crear un archivo **Dockerfile**: necesitamos este archivo precisamente con este nombre para crear la imagen.
+2 ) Crear un archivo **Dockerfile**: necesitamos este archivo precisamente con este nombre para crear la imagen y hago enfasís en que se tiene que llamar con ese nombre.
 
-3 ) Instrucciones: vamos a definir los pasos a continuación en forma de pseudocódigo
+3 ) Instrucciones: vamos a definir los pasos a continuación en forma de pseudocódigo.
 
     - ) Paso 1: Imagen base
     - ) Paso 2: Establecer el directorio de trabajo
@@ -29,7 +29,7 @@ Vamos a aprender a construir un Dockerfile con un ejemplo muy sencillo, vamos a 
 En este ejemplo vamos a construir un **Dockerfile** con una API muy sencilla cuyo codigo se encuentra en el archivo **main.py**. A continuación vamos a explicar cada línea del archivo de docker basandonos en los pasos anteriores para que se pueda entender mejor.
 
 #### Imagen base
-Cuando creamos una imagen, debemos especificar en base a que imagen de Docker lo vamos a hacer. En este caso lo haremos en base a la imagen de **Python** y en particular de la versióno 3.9.
+Cuando creamos una imagen, debemos especificar en base a que imagen de Docker Hub lo vamos a hacer. En este caso lo haremos en base a la imagen de **Python** y en particular de la versión **3.9**.
 
 Esta es la primer línea de nuestro archivo donde se especifíca dicha imagen.
 ```
@@ -45,7 +45,7 @@ WORKDIR /app
 Este directorio se convierte en el directorio actual para cualquier instrucción RUN, CMD, ENTRYPOINT, COPY, y ADD que siga en el Dockerfile. Es similar a usar el comando cd en una terminal para cambiar el directorio actual.
 
 #### Copiar los archivos de requisitos
-Debemos indicar las dependecias necesarias para que la aplicación funcione adecuadamente y esto en python se hace mediante el archivo *requirements.txt*, por lo que debemos copiarlo con la siguiente linea,
+Debemos indicar las dependecias necesarias para que la aplicación funcione adecuadamente y esto en python se hace mediante el archivo *requirements.txt*, por lo que debemos copiarlo con la siguiente línea.
 
 ```
 COPY requirements.txt .
@@ -59,11 +59,11 @@ Para instalar las dependencias se utiliza el comando **RUN** seguido de las inst
 RUN pip install --no-cache-dir -r requirements.txt
 ```
 #### Copiar el resto del código de la aplicación al directorio de trabajo
-Ahora debemos copiar los todos los archivos de la aplicación, en este caso es solo uno. Yesto se realiza con la siguiente línea de comando
+Ahora debemos copiar los todos los archivos de la aplicación, en este caso es solo uno. Y esto se realiza con la siguiente línea de comando.
 ```
 COPY . .
 ```
-Luego del comando **COPY** se indican el directorio origen (de donde voy a copiar, en terminos simples el destino de tu máquina local) y el directorio destino (que seria el directorio dentro del contenedor, en este caso el definido previamente por WORKDIR).
+Luego del comando **COPY** se indican el directorio origen (de donde voy a copiar, en términos simples el destino de tu máquina local) y el directorio destino (que sería el directorio dentro del contenedor, en este caso el definido previamente por WORKDIR).
 
 Vemos como los 2 destinos están representados con **.** ya que indican el actual directorio donde se esta trabajando en el primer caso y WORKDIR en el segundo.
 
