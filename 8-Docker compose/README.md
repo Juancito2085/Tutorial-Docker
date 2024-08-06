@@ -1,15 +1,15 @@
 # Docker Compose
 
-Docker Compose es una herramienta para definir y ejecutar aplicaciones Docker de múltiples contenedores. Con Docker Compose, podemos usar un archivo YAML para configurar los servicios de una aplicación. Luego, con un solo comando, podemos crear e iniciar todos los servicios desde tu configuración.
+Docker Compose es una herramienta para definir y ejecutar aplicaciones Docker de múltiples contenedores. Con Docker Compose, podemos usar un archivo **.yaml** o **.yml** para configurar los servicios de una aplicación. Luego, con un solo comando, podemos crear e iniciar todos los servicios desde nuestra configuración.
 
-En pocas palabras todo lo que hemos hecho en la unidad anterior lo podemos incorporar a un archivo YAML y al ejecutarlo se realizará todo el proceso de una vez.
+En pocas palabras todo lo que hemos hecho en la unidad anterior lo podemos incorporar a un archivo YAML y al ejecutarlo se ejecutará todo el proceso de una vez.
 
 Las características principales son:
 1. Definición de servicios: Podemos definir todos los servicios que componen una aplicación en un solo archivo docker-compose.yml.
 2. Redes y volúmenes: Podemos configurar redes y volúmenes compartidos entre contenedores.
-3. Escalabilidad: Podemos escalar servicios hacia arriba o hacia abajo con un solo comando.
+3. Escalabilidad: Podemos escalar servicios hacia arriba o hacia abajo con un solo comando. Esto quiere decir que podemos aumentar o disminuir el número de instancias.
 
-Veremos esto con el mismo ejemplo de la unidad anterior, es decir que haremos un docker compose que nos permite crear los 2 contenedores de antes pero todas las instrucciones estarán en un solo archivo.
+Veremos esto con el mismo ejemplo de la unidad anterior, es decir que crearemos un docker-compose.yaml que nos permite crear los 2 contenedores que habíamos creado, pero todas las instrucciones que utilizamos estarán en un solo archivo.
 
 ### docker-compose.yaml
 
@@ -35,7 +35,7 @@ services:
 En primer lugar tenemos:
 
 1. **version**:
-    - Aquí se especifíca la versión del formato del archivo Docker Compose que se esta utilizando. Esto es de suma importancia porque diferentes versionies de Docker Compose pueden tener diferentes características y sintaxis.
+    - Aquí se especifíca la versión del formato del archivo Docker Compose que se esta utilizando. Esto es de suma importancia porque diferentes versiones de Docker Compose pueden tener diferentes características y sintaxis.
 
 2. **services:**
 
@@ -66,4 +66,4 @@ Una vez que tengamos el Docker Compose y el Dockerfile en la misma carpeta con t
 ```
 docker compose up -d
 ```
-Una vez que corramos este comando se va a realizar todo el proceso que hemos hecho anteriormente y todo esto mediante las instrucciones del archivo **docker-compose.yaml*.
+Una vez que corramos este comando se va a realizar todo el proceso que hemos hecho anteriormente y todo esto mediante las instrucciones del archivo **docker-compose.yaml**.
