@@ -1,8 +1,8 @@
 # Ambientes y Hot Reload
 
-En primer lugar vamos a crear un nuevo archivo **Dockerfile.dev** que lo utilizaremos para desarrollo.
+En primer lugar crearemos un nuevo archivo **Dockerfile.dev** que lo utilizaremos para desarrollo.
 
-Pero para detectar los cambios que hagamos en nuestra aplicación vamos a tener que utilizar una herramienta que nos permita hacer **hot reload** que puede ser **watchdog** o ** python-devtools**.
+Pero para detectar los cambios que hagamos en nuestra aplicación vamos a tener que utilizar una herramienta que nos permita hacer **hot reload** que puede ser **watchdog** o **python-devtools**.
 
 En este caso haremos un ejemplo con **watchdog** y veremos los cambios que le haremos al **Dockerfile.dev**
 
@@ -87,7 +87,7 @@ command: >
   watchmedo auto-restart --patterns=*.py --recursive -- 
   uvicorn main:app --host 0.0.0.0 --port 8000 --reload
 ```
-En primer lugar **comand** especifíca el comando que se ejecutará cuando se inicie el contenedor, además el signo **>** después de **:** indica que habrá un bloque de texto multilínea.
+En primer lugar **command** especifíca el comando que se ejecutará cuando se inicie el contenedor, además el signo **>** después de **:** indica que habrá un bloque de texto multilínea.
 
 Los comandos que se usan en la primera línea son:
 
