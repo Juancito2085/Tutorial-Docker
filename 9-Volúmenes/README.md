@@ -2,15 +2,17 @@
 
 Cuando trabajamos con contenedores y los eliminamos también se eliminan los datos almacenados en ellos. 
 
-Como los contenedores tienen su propio sistema de archivos, ahí es donde va a estar almacenada toda la data. Si quisieramos que la información persista más alla de borrar los contenedores entonces usaríamos la herramienta **volumes**.
+Como los contenedores tienen su propio sistema de archivos, ahí es donde va a estar almacenada toda la información. Si quisieramos que esta última persista luego de borrar los contenedores entonces usaríamos la herramienta **volumes**.
  
-Con volumes se montaría la carpeta dentro del sistema operativo anfitrión y no dentro del container como se puede ver en la siguiente imagen.
+Con **volumes** se montaría la carpeta dentro del sistema operativo anfitrión y no dentro del container como se puede ver en la Figura 1.
 
 ![docker volumes](/img/docker%20volumes.png)
+
+Figura 1. Esquema de sistema de archivos de contenedores y volúmenes.
  
 ### Tipos de volúmenes
 
-1. Anónimo: estos volúmenes se crean sin un nombre específico y se utilizan principalmente cuando necesitas un almacenamiento temporal. Se eliminan automáticamente cuando el contenedor que los utiliza se elimina.
+1. Anónimo: estos volúmenes se crean sin un nombre específico y se utilizan principalmente cuando se necesita un almacenamiento temporal. Se eliminan automáticamente cuando el contenedor que los utiliza se elimina.
 
 2. Nombrado: estos volúmenes tienen un nombre definido por el usuario, lo que facilita su identificación y gestión. Son útiles cuando necesitas compartir datos entre varios contenedores o cuando necesitas que los datos persistan más allá del ciclo de vida de un contenedor.
 
@@ -63,7 +65,7 @@ Con el mismo código de la Unidad anterior vamos a realizar modificaciones como 
 
 ### Persistencia de los datos
 
-Ahora con el **docker-compose.yml** que se encuentra en esta unidad vamos a levantar los contenedores cargar un elemento y bajar los contenedores para verificar que no se haya eliminado la información.
+Ahora con el **docker-compose.yaml** que se encuentra en esta unidad vamos a levantar los contenedores cargar un elemento y bajar los contenedores para verificar que no se haya eliminado la información.
 
 Con el siguiente comando levantamos los contenedores.
 
@@ -71,20 +73,23 @@ Con el siguiente comando levantamos los contenedores.
 docker compose up -d
 ```
 
-Vamos a insertar un items como se ve en la siguiente figura.
+Vamos a insertar un elemento como se ve en la Figura 2.
 
 ![volumen insertar item](/img/volumen%20item%20creado.png)
 
-Ahora vamos a detener y eliminar los contenedores mediante la siguiente línea de comando
+Figura 2. Elemento insertado en la base de datos MongoDB.
+
+Luego detenemos y eliminamos los contenedores mediante la siguiente línea de comando.
 
 ```
 docker compose down
 ```
-Esto lo podemos ver en la siguiente imagen.
+Esto lo podemos ver en la Figura 3.
 
 ![volumenes items](/img/volumenes%20docker%20compose%20down.png)
+Figura 3. Contenedores detenidos y eliminados.
 
-Con esto si no tendríamos configurado los volúmenes la información se habría perdido. 
+Con esto si no tendríamos configurado los volúmenes la información se habría perdido al eliminarse los contenedores. 
 
 Pero ahora vamos a volver a levantar los contenedores como lo hemos hecho antes.
 
@@ -95,5 +100,6 @@ docker compose up -d
 Y vamos a verificar que esté el item que habíamos creado anteriormente.
 
 ![volumenes post bajada](/img/volumenes%20post%20bajada.png)
+Figura 4. Elementos de la base de datos.
 
-Y como vemos en la imagen de arriba, el item que habíamos creado no se eliminó al eliminar los contenedores anteriormente.
+Y como vemos en la Figura 4, el item que habíamos creado no se eliminó al eliminar los contenedores anteriormente.
